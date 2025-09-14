@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
-import { getUser, getPlans } from "./services/api";
+import { useEffect, useState } from 'react';
+import { getUser, getPlans } from './services/api';
+import './styles/global.scss';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -11,30 +12,32 @@ function App() {
       const plansData = await getPlans();
       setUser(userData);
       setPlans(plansData);
-      console.log("✅ Usuario:", userData);
-      console.log("✅ Planes:", plansData);
     };
 
     fetchData();
   }, []);
 
   return (
-    <main>
-      <h1>Reto Frontend RIMAC</h1>
+    <main className="container">
+      <header className="header">
+        <h1 className="header__title">RIMAC Seguros</h1>
+      </header>
 
-      {user && (
-        <section>
-          <h2>Usuario:</h2>
-          <pre>{JSON.stringify(user, null, 2)}</pre>
-        </section>
-      )}
+      <section className="user-info">
+        <h2 className="user-info__title">Bienvenido/a, {user?.name}</h2>
+      </section>
 
-      {plans && (
-        <section>
-          <h2>Planes:</h2>
-          <pre>{JSON.stringify(plans, null, 2)}</pre>
-        </section>
-      )}
+      <section className="plans">
+        <h2 className="plans__title">Nuestros Planes</h2>
+        <div className="grid plans-grid">
+          {plans.map((plan) => (
+            <div key={plan.name} className="plans__card">
+              <h3>{plan.name}</h3>
+              <p>Precio: ${plan.price}</p>
+            </div>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
