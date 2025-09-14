@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import { getUser, getPlans } from "./services/api";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [user, setUser] = useState(null);
+  const [plans, setPlans] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userData = await getUser();
+      const plansData = await getPlans();
+      setUser(userData);
+      setPlans(plansData);
+      console.log("✅ Usuario:", userData);
+      console.log("✅ Planes:", plansData);
+    };
+
+    fetchData();
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <main>
+      <h1>Reto Frontend RIMAC</h1>
+
+      {user && (
+        <section>
+          <h2>Usuario:</h2>
+          <pre>{JSON.stringify(user, null, 2)}</pre>
+        </section>
+      )}
+
+      {plans && (
+        <section>
+          <h2>Planes:</h2>
+          <pre>{JSON.stringify(plans, null, 2)}</pre>
+        </section>
+      )}
+    </main>
+  );
 }
 
-export default App
+export default App;
