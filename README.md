@@ -1,78 +1,82 @@
+# 🛡️ Reto Técnico RIMAC - Cotizador de Seguros
 
-# 🚀 RIMAC Frontend Challenge
-
-Frontend challenge propuesto por RIMAC para evaluación técnica.
-
-## 🛠 Tecnologías utilizadas
-
-- [React](https://reactjs.org/)
-- [Vite](https://vitejs.dev/)
-- [Sass](https://sass-lang.com/)
-- [Vercel](https://vercel.com/) (para deploy)
+Este proyecto es una solución al reto técnico de RIMAC, que consiste en un cotizador de seguros desarrollado con **React + Vite**, aplicando buenas prácticas de diseño, performance y testing.
 
 ---
 
-## 📸 Diseño Figma
+## 🚀 Demo
 
-[Figma – RIMAC Challenge](https://www.figma.com/design/KGftIKxhcVm41kTKMsfTh2/Frontend-Challenge-2023)
-
----
-
-## 🔗 API Pública
-
-- **Usuario**: [https://rimac-front-end-challenge.netlify.app/api/user.json](https://rimac-front-end-challenge.netlify.app/api/user.json)  
-- **Planes**: [https://rimac-front-end-challenge.netlify.app/api/plans.json](https://rimac-front-end-challenge.netlify.app/api/plans.json)
+🔗 Deployment: _(pendiente de agregar link de Vercel)_
 
 ---
 
-## 🔧 Cómo correr el proyecto localmente
+## 📦 Tech Stack
+
+- React 18 + Vite
+- SCSS Modules
+- Vitest + React Testing Library
+- ESLint + Prettier
+- Vercel (para despliegue)
+
+---
+
+## 🧩 Estructura del Proyecto
+
+```
+/src
+  /components      → Header, Stepper, UserTypeSelector, PlansList, Summary, etc.
+  /pages           → PlansPage.jsx (pantalla principal)
+  /services        → api.js (mock de consumo de datos)
+  /styles          → SCSS modularizado con variables y reutilización
+```
+
+---
+
+## 🧪 Testing
+
+- Pruebas unitarias completas con cobertura a componentes clave.
+- Uso de `@testing-library/react` + `vitest`.
+- Mock de servicios para pruebas aisladas.
+
+---
+
+## 🧼 Clean Code & Performance
+
+- Uso de `React.memo` y funciones puras.
+- Separación de lógica en hooks y props controladas.
+- Optimizaciones de renderizado condicional.
+
+---
+
+## ✨ Mejora técnica y UX
+
+- Diseño responsive validado en iPhone SE y pantallas grandes.
+- Código SCSS limpio, con variables centralizadas en `_variables.scss`.
+- Carga condicional de componentes (como `Summary` solo si hay plan seleccionado).
+- Errores controlados con `try/catch` y fallback UI amigable.
+
+---
+
+## 🧠 Cómo ejecutar localmente
 
 ```bash
-git clone https://github.com/TU_USUARIO/rimac-frontend-challenge.git
-cd rimac-frontend-challenge
+# 1. Clona el repositorio
+git clone https://github.com/siberia0310/rimac-frontend-challenge
+
+# 2. Instala dependencias
 npm install
+
+# 3. Corre la app
 npm run dev
+
+# 4. Corre las pruebas
+npm run test
 ```
 
 ---
 
-## 📦 Cómo hacer el build
+## 👩‍💻 Autora
 
-```bash
-npm run build
-```
+Desarrollado por **Siberia González** como parte del proceso de selección técnica para RIMAC Seguros.
 
 ---
-
-## ✅ Funcionalidades implementadas
-
-- [ ] Consumo de APIs
-- [ ] Manejo de estado
-- [ ] Componentes reutilizables
-- [ ] Grid System Layout (Figma)
-- [ ] Sass + BEM
-- [ ] Diseño responsive
-- [ ] Validación de formularios
-- [ ] Pruebas unitarias
-- [ ] Deploy
-
----
-
-## 🚀 Link al deploy
-
-**(Próximamente...)**
-
----
-
-## 🎯 Consideraciones
-
-> En esta prueba he priorizado la escalabilidad del código, el uso de buenas prácticas y el diseño limpio. Cada feature ha sido construida con una mentalidad orientada a componentes, reutilización y claridad.
-
----
-
-## 📞 Contacto
-
-Siberia González  
-Frontend Developer Senior  
-📧 siberiagonzalez03@gmail.com  
-📍 Lima, Perú
