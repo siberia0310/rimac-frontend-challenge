@@ -1,8 +1,9 @@
+import { memo } from "react";
 import "../styles/BackButton.scss";
 
 function BackButton({ onClick }) {
   return (
-    <button className="back-button" onClick={onClick}>
+    <button className="back-button" onClick={onClick} aria-label="Volver">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -16,7 +17,7 @@ function BackButton({ onClick }) {
           r="9"
           transform="rotate(90 10 10)"
           stroke="#4F4FFF"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           d="M7.55317 9.99995L10.8094 6.74683L11.6907 7.62808L9.32192 9.99995L11.6907 12.3718L10.8094 13.2531L7.55317 9.99995Z"
@@ -28,4 +29,4 @@ function BackButton({ onClick }) {
   );
 }
 
-export default BackButton;
+export default memo(BackButton);

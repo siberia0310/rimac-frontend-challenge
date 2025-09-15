@@ -1,8 +1,23 @@
 import React from "react";
 
 function PlanCard({ plan, onSelect }) {
+  const handleCardClick = () => onSelect(plan);
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      handleCardClick();
+    }
+  };
+
   return (
-    <div className="plan-card" onClick={() => onSelect(plan)}>
+    <div
+      className="plan-card"
+      role="button"
+      tabIndex={0}
+      onClick={handleCardClick}
+      onKeyDown={handleKeyDown}
+    >
       <div className="plan-card__content">
         <div className="plan-card__info">
           <h3 className="plan-card__title">{plan.name}</h3>
@@ -15,7 +30,7 @@ function PlanCard({ plan, onSelect }) {
 
         <ul className="plan-card__description">
           {plan.description.map((item, idx) => (
-            <li key={idx}>{item}</li>
+            <li key={`${plan.name}-desc-${idx}`}>{item}</li>
           ))}
         </ul>
       </div>
@@ -33,4 +48,4 @@ function PlanCard({ plan, onSelect }) {
   );
 }
 
-export default PlanCard;
+export default React.memo(PlanCard);

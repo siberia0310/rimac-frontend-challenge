@@ -5,6 +5,8 @@ function UserTypeCard({ title, description, selected, onClick }) {
   return (
     <div
       className={`user-type-card ${selected ? "selected" : ""}`}
+      role="button"
+      aria-pressed={selected}
       onClick={onClick}
     >
       {selected && (
@@ -77,4 +79,4 @@ function UserTypeCard({ title, description, selected, onClick }) {
   );
 }
 
-export default UserTypeCard;
+export default React.memo(UserTypeCard);

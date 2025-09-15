@@ -1,5 +1,6 @@
 import UserTypeCard from "./UserTypeCard";
 import "../styles/UserTypeSelector.scss";
+import React from "react";
 
 function UserTypeSelector({ userName, selectionType, setSelectionType }) {
   return (
@@ -31,4 +32,4 @@ function UserTypeSelector({ userName, selectionType, setSelectionType }) {
   );
 }
 
-export default UserTypeSelector;
+export default React.memo(UserTypeSelector)

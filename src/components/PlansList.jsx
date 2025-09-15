@@ -2,7 +2,11 @@ import PlanCard from './PlanCard';
 import "../styles/PlansList.scss";
 
 function PlansList({ plans, onSelect }) {
-  if (!plans || !plans.length) return <p>No hay planes disponibles.</p>;
+  const noPlans = !Array.isArray(plans) || plans.length === 0;
+
+  if (noPlans) {
+    return <p>No hay planes disponibles.</p>;
+  }
 
   return (
     <section className="plans">
