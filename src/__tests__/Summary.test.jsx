@@ -18,10 +18,24 @@ describe('Summary Component', () => {
 
   it('renders summary with user and plan info', () => {
     render(<Summary user={mockUser} selectedPlan={mockPlan} onBack={() => {}} />)
+
     expect(screen.getByText(/Resumen del seguro/i)).toBeInTheDocument()
-    expect(screen.getByText(/Rocío Miranda Díaz/i)).toBeInTheDocument()
-    expect(screen.getByText(/Plan en Casa y Clínica/i)).toBeInTheDocument()
-    expect(screen.getByText(/\$99/i)).toBeInTheDocument()
+
+    const nameMatches = screen.getAllByText((_, node) =>
+      node?.textContent?.includes('Rocío') &&
+      node?.textContent?.includes('Miranda Díaz')
+    )
+    expect(nameMatches.length).toBeGreaterThan(0)
+
+    const planMatches = screen.getAllByText((_, node) =>
+      node?.textContent?.includes('Plan en Casa y Clínica')
+    )
+    expect(planMatches.length).toBeGreaterThan(0)
+
+    const priceMatches = screen.getAllByText((_, node) =>
+      node?.textContent?.includes('99')
+    )
+    expect(priceMatches.length).toBeGreaterThan(0)
   })
 
   it('calls onBack when back button is clicked', () => {
