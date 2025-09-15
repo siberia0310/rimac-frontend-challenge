@@ -1,0 +1,117 @@
+.summary {
+  max-width: 928px;
+  margin: 0 auto;
+  padding: 48px 16px;
+
+  &__title {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 48px;
+    color: #141938;
+    margin-bottom: 48px;
+  }
+
+  &__card {
+    background: #ffffff;
+    border-radius: 24px;
+    box-shadow: 0px 1px 24px rgba(174, 172, 243, 0.25);
+    padding: 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__label {
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #141938;
+    line-height: 16px;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 18px;
+    font-weight: 700;
+    color: #141938;
+    line-height: 28px;
+  }
+
+  &__divider {
+    border: none;
+    border-top: 1px solid #d7dbf5;
+    margin: 0;
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    color: #141938;
+    line-height: 24px;
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 400;
+    color: #141938;
+    line-height: 24px;
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    padding: 32px 24px;
+
+    &__title {
+      font-size: 32px;
+      line-height: 40px;
+      margin-bottom: 32px;
+    }
+
+    &__card {
+      padding: 20px;
+      border-radius: 20px;
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 32px 24px;
+
+    &__title {
+      font-size: 28px;
+      line-height: 36px;
+      margin-bottom: 24px;
+    }
+
+    &__card {
+      width: 100%;
+      padding: 16px;
+      border-radius: 16px;
+      gap: 16px;
+    }
+
+    &__user {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &__subtitle {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &__text {
+      font-size: 13px;
+      line-height: 20px;
+    }
+  }
+}

@@ -1,17 +1,23 @@
+@use './_variables' as *;
+
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.plans-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: $breakpoint-mobile) {
+  .plans-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .grid {
-    display: grid;
-    gap: 1.5rem;
-  }
-  
-  @media (min-width: $breakpoint-mobile) {
-    .plans-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
+}

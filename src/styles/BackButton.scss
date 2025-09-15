@@ -1,0 +1,30 @@
+@use './_variables' as *;
+
+.back-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 32px 0px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+
+  font-family: $font-primary;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  color: $color-cta; 
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+  }
+
+  @media (max-width: 768px) {
+    display: none; 
+  }
+}
+

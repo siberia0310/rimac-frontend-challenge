@@ -1,5 +1,6 @@
-@import './variables';
-@import './layout';
+@use './_variables' as *;
+@use './_layout' as *;
+
 
 * {
   margin: 0;
@@ -8,11 +9,19 @@
 }
 
 body {
-  font-family: 'Lato', sans-serif;
-  background-color: #f8f9fa;
-  color: #2b2b2b;
+  font-family: $font-primary;
+  background-color: $color-background;
+  color: $color-primary;
 }
-
+.plans-container {
+  padding-top: 0;
+  margin-top: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  background-color: $color-background;
+}
 main {
-  padding: 2rem;
+  padding-top: 0;
+  margin-top: 0;
 }

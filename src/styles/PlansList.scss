@@ -1,0 +1,147 @@
+.plans {
+  padding: 16px;
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 288px);
+    gap: 32px;
+    justify-content: center;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, 288px); /* Tablets → 2 cards */
+    }
+
+    @media (max-width: 600px) {
+      grid-template-columns: 288px; /* Mobile → 1 card */
+    }
+  }
+}
+
+
+.plan-card {
+  width: 288px;
+  background: #ffffff;
+  border: 1px solid #e4e8f7;
+  border-radius: 24px;
+  box-shadow: 0px 0px 1px rgba(174, 172, 243, 0.35),
+    0px 32px 32px rgba(174, 172, 243, 0.35);
+  padding: 68px 32px 48px 32px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .plan-card__content {
+    height: 480px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .plan-card__info {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .plan-card__description {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    height: 340px;
+
+    li {
+      font-size: 16px;
+      line-height: 28px;
+      color: #141938;
+      margin-left: 24px;
+    }
+  }
+
+  /* Títulos */
+  .plan-card__title {
+    font-size: 24px;
+    font-weight: 900;
+    color: #141938;
+    line-height: 32px;
+  }
+
+  /* Precio */
+  .plan-card__infoprice {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .plan-card__label {
+    font-size: 12px;
+    font-weight: 900;
+    color: #7981b2;
+    line-height: 16px;
+  }
+
+  .plan-card__price {
+    font-size: 16px;
+    font-weight: 700;
+    color: #141938;
+  }
+
+  .plan-card__divider {
+    background: #d7dbf5;
+    height: 1px;
+    border: none;
+  }
+
+  /* Beneficios */
+  .plan-card__benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 32px 0;
+
+    li {
+      margin-bottom: 12px;
+      font-size: 14px;
+      line-height: 20px;
+      color: #141938;
+      position: relative;
+      padding-left: 20px;
+
+      &::before {
+        content: "•";
+        position: absolute;
+        left: 0;
+        top: 0;
+        color: #4f4fff; /* bullet azul */
+        font-weight: bold;
+      }
+    }
+  }
+
+  /* Botón */
+  .plan-card__button {
+    width: 224px;
+    height: 48px;
+    background: #ff1c44;
+    color: #ffffff;
+    border: none;
+    border-radius: 32px; /* redondeado estilo pill */
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  
+    &:hover {
+      background: #e0193c; /* tono más oscuro al hover */
+    }
+  }
+  
+
+  /* Estado seleccionado */
+  &.selected {
+    border: 2px solid #4f4fff;
+  }
+}
