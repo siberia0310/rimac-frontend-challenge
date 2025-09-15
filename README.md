@@ -6,7 +6,7 @@ Este proyecto es una solución al reto técnico de RIMAC, que consiste en un cot
 
 ## 🚀 Demo
 
-🔗 Deployment: _(pendiente de agregar link de Vercel)_
+🔗 Deployment: (https://rimac-frontend-challenge-psi.vercel.app/)
 
 ---
 
