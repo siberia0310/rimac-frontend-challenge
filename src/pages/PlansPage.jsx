@@ -11,14 +11,27 @@ function PlansPage() {
   const [plans, setPlans] = useState([]);
   const [selectionType, setSelectionType] = useState(null);
   const [selectedPlan, setSelectedPlan] = useState(null);
+  const [hasError, setHasError] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
-      const userData = await getUser();
-      const planData = await getPlans();
-      setUser(userData);
-      setPlans(planData);
+      try {
+        const userData = await getUser();
+        const planData = await getPlans();
+
+        if (!userData || !planData) {
+          throw new Error("Data structure invalid");
+        }
+
+        setUser(userData);
+        setPlans(planData);
+        setHasError(false);
+      } catch (error) {
+        console.error("Error loading data:", error);
+        setHasError(true);
+      }
     };
+
     fetchData();
   }, []);
 
@@ -29,6 +42,20 @@ function PlansPage() {
   const handleBackToPlans = () => {
     setSelectedPlan(null);
   };
+
+  if (hasError) {
+    return (
+      <main className="plans-container">
+        <Header />
+        <div className="text-center mt-10 text-red-600">
+          <p>
+            Ocurrió un error al cargar los datos. Por favor, inténtalo más
+            tarde.
+          </p>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <main className="plans-container">
@@ -42,9 +69,15 @@ function PlansPage() {
             selectionType={selectionType}
             setSelectionType={setSelectionType}
           />
-          {selectionType && (
-            <PlansList plans={plans} onSelect={handlePlanSelect} />
-          )}
+
+          {selectionType &&
+            (plans.length > 0 ? (
+              <PlansList plans={plans} onSelect={handlePlanSelect} />
+            ) : (
+              <p className="text-center mt-6 text-gray-600">
+                No hay planes disponibles.
+              </p>
+            ))}
         </>
       )}
 
