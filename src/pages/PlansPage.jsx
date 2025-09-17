@@ -18,12 +18,22 @@ function PlansPage() {
       try {
         const userData = await getUser();
         const planData = await getPlans();
+        const savedLoginData = JSON.parse(
+          localStorage.getItem("userLoginData")
+        );
 
-        if (!userData || !planData) {
-          throw new Error("Data structure invalid");
+        if (!userData || !planData || !savedLoginData) {
+          throw new Error("Missing data");
         }
 
-        setUser(userData);
+        const fullUser = {
+          ...userData,
+          documentType: savedLoginData.documentType,
+          documentNumber: savedLoginData.documentNumber,
+          phoneNumber: savedLoginData.phoneNumber,
+        };
+
+        setUser(fullUser);
         setPlans(planData);
         setHasError(false);
       } catch (error) {

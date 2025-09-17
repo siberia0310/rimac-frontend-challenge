@@ -33,8 +33,10 @@ function Summary({ user, selectedPlan, onBack }) {
         {/* Responsable de pago */}
         <div className="summary__section">
           <span className="summary__subtitle">Responsable de pago</span>
-          <p className="summary__text">DNI: 444888888</p>
-          <p className="summary__text">Celular: 5130216147</p>
+          <p className="summary__text">
+            {user.documentType}: {user.documentNumber}
+          </p>
+          <p className="summary__text">Celular: {user.phoneNumber}</p>
         </div>
 
         <hr className="summary__divider" />
@@ -44,7 +46,7 @@ function Summary({ user, selectedPlan, onBack }) {
           <span className="summary__subtitle">Plan elegido</span>
           <p className="summary__text">{selectedPlan.name}</p>
           <p className="summary__text">
-            Costo del Plan: ${selectedPlan.price} al mes
+            Costo del Plan: S/ {selectedPlan.price} al mes
           </p>
         </div>
       </div>
